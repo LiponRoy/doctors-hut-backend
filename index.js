@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import DatabaseConnect from "./DatabaseConnect.js";
 dotenv.config();
+import authRoutes from "./Routes/authRoutes.js";
 
 const app = express();
 const port = process.env.PORT || 7000
@@ -22,7 +23,8 @@ mongoose.set("strictQuery",false)
 app.use(express.json());
 app.use(cookieParser())
 app.use(cors(corsOptions));
-
+// Routes
+app.use("api/v1/auth/",authRoutes);
 
 app.listen(port,()=>{
     DatabaseConnect();
