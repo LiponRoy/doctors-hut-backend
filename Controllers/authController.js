@@ -75,7 +75,7 @@ export const login = async (req, res) => {
 
     // get token
     const token = generateToken(user);
-    const { password, role, ...rest } = user._doc;
+    const { role, ...rest } = user._doc;
 
     res.status(200).json({
       status: true,
