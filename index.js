@@ -7,6 +7,7 @@ import DatabaseConnect from "./DatabaseConnect.js";
 dotenv.config();
 import authRoutes from "./Routes/authRoutes.js";
 import userRoute from "./Routes/userRoute.js";
+import doctorRoute from "./Routes/doctorRoutes.js";
 
 const app = express();
 const port = process.env.PORT || 7000
@@ -27,8 +28,10 @@ app.use(cors(corsOptions));
 // Routes
 app.use("/api/v1/auth",authRoutes);
 app.use("/api/v1/user",userRoute);
+app.use("/api/v1/doctor",doctorRoute);
 
 app.listen(port,()=>{
     DatabaseConnect();
     console.log("server is running on port.. ",port);
 })
+
